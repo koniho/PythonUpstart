@@ -1,3 +1,4 @@
+from types import NoneType
 from collections import OrderedDict
 from cStringIO import StringIO
 
@@ -196,7 +197,7 @@ class JobBuilder(object):
         """
 
         assert issubclass(events.__class__, (basestring, list))
-        assert issubclass(conjunct.__class__, (None, basestring))
+        assert issubclass(conjunct.__class__, (NoneType, basestring))
 
         events = self.__stringify_events(events, conjunct)
         return self.__set('start on', events)
@@ -226,7 +227,7 @@ class JobBuilder(object):
         """Specifies which events to stop on. Similar syntax as "start on"."""
 
         assert issubclass(events.__class__, (basestring, list))
-        assert issubclass(conjunct.__class__, (None, basestring))
+        assert issubclass(conjunct.__class__, (NoneType, basestring))
 
         events = self.__stringify_events(events, conjunct)
         return self.__set('stop on', events)
